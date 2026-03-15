@@ -33,9 +33,12 @@ res.send("Crowdsourced Treatment Intelligence Platform API");
 
 app.use("/api", treatmentRoutes);
 
-app.listen(3000, ()=>{
-console.log("Server running on port 3000");
+const PORT= process.env.PORT || 3000;
+app.listen(PORT, ()=>{
+    console.log('Server running on port ${PORT}');
 });
+
+
 app.get("/api/feed/live", async (req, res) => {
   try {
     const PatientIssue = require("./models/PatientIssue");
