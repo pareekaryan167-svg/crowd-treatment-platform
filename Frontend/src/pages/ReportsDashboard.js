@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
-const API_URL = "https://treatment-backend-it5o.onrender.com/api";
+
 import AIRecommendations from "../components/AIRecommendation";
 import {
 Chart as ChartJS,
@@ -12,6 +12,8 @@ Title,
 Tooltip,
 Legend
 } from "chart.js";
+
+const API_URL = "https://treatment-backend-it5o.onrender.com/api";
 
 ChartJS.register(
 CategoryScale,
