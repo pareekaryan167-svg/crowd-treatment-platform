@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
+const API_URL = "https://treatment-backend-it5o.onrender.com/api";
 import AIRecommendations from "../components/AIRecommendation";
 import {
 Chart as ChartJS,
@@ -28,7 +29,7 @@ const [reports,setReports] = useState([]);
 
 useEffect(()=>{
 
-fetch("http://localhost:3000/api/reports")
+fetch(`${API_URL}/api/reports`)
 .then(res=>res.json())
 .then(data=>setReports(data));
 
