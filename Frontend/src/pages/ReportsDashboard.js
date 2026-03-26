@@ -31,7 +31,7 @@ const [reports,setReports] = useState([]);
 
 useEffect(()=>{
 
-fetch(`${API_URL}/api/reports`)
+fetch(`${API_URL}/api/feed`)
 .then(res=>res.json())
 .then(data=>setReports(data));
 

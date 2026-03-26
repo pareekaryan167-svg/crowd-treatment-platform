@@ -10,6 +10,9 @@ const patientRoutes = require("./routes/patient");
 const doctorRoutes = require("./routes/doctor");
 const aiRoutes = require("./routes/ai");
 const feedRoutes = require("./routes/feed");
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
 app.use("/api/feed",feedRoutes);
 
