@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const PatientIssue = require("../models/PatientIssues");
+const PatientIssue = require("../Frontend/src/models/PatientIssues");
 
 router.post("/submitIssue", async (req,res)=>{
 

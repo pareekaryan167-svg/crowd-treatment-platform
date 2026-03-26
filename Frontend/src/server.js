@@ -2,14 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const treatmentRoutes = require("./routes/TreatmentRoutes");
+const treatmentRoutes = require("../../routes/TreatmentRoutes");
 
 const app = express();
-const authRoutes = require("./routes/auth");
-const patientRoutes = require("./routes/patient");
-const doctorRoutes = require("./routes/doctor");
-const aiRoutes = require("./routes/ai");
-const feedRoutes = require("./routes/feed");
+const authRoutes = require("../../routes/auth");
+const patientRoutes = require("../../routes/patient");
+const doctorRoutes = require("../../routes/doctor");
+const aiRoutes = require("../../routes/ai");
+const feedRoutes = require("../../routes/feed");
+const treatmentRoutes = require("../../routes/treatmentRoutes");
 
 app.use("/api/feed",feedRoutes);
 
@@ -22,7 +23,7 @@ app.use("/api/auth",authRoutes);
 
 app.use(cors());
 app.use(express.json());
-app.use("/api",TreatmentRoutes);
+app.use("/api",treatmentRoutes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:admin123@cluster0.lbjfzwe.mongodb.net/?appName=Cluster0")
 .then(()=>console.log("MongoDB Connected"))

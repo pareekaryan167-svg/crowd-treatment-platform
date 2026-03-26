@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Treatment = require("../models/Treatment");
+const Treatment = require("../Frontend/src/models/Treatment");
 
 router.post("/submit", async(req,res)=>{
 

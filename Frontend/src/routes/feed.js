@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const PatientIssue = require("../models/PatientIssues");
-const DoctorSuggestion = require("../models/DoctorSuggestion");
+const PatientIssue = require("../Frontend/src/models/PatientIssues");
+const DoctorSuggestion = require("../Frontend/src/models/DoctorSuggestion");
 
 router.get("/live", async (req,res)=>{
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const Treatment = require("../models/Treatment"); // your existing model
+const Treatment = require("../Frontend/src/models/Treatment"); // your existing model
 
 router.get("/recommend/:disease", async (req,res)=>{
 

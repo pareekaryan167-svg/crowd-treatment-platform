@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const DoctorSuggestion = require("../models/DoctorSuggestion");
+const DoctorSuggestion = require("../Frontend/src/models/DoctorSuggestion");
 
 router.post("/recommend", async (req,res)=>{
 
