@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const treatmentRoutes = require("./routes/treatmentRoutes");
+const treatmentRoutes = require("./routes/TreatmentRoutes");
 
 const app = express();
 const authRoutes = require("./routes/auth");
@@ -10,9 +10,6 @@ const patientRoutes = require("./routes/patient");
 const doctorRoutes = require("./routes/doctor");
 const aiRoutes = require("./routes/ai");
 const feedRoutes = require("./routes/feed");
-app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
-});
 
 app.use("/api/feed",feedRoutes);
 
@@ -25,23 +22,15 @@ app.use("/api/auth",authRoutes);
 
 app.use(cors());
 app.use(express.json());
+app.use("/api",TreatmentRoutes);
 
-mongoose.connect("mongodb+srv://admin:admin123@cluster0.lbjfzwe.mongodb.net/?appName=Cluster0")
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:admin123@cluster0.lbjfzwe.mongodb.net/?appName=Cluster0")
 .then(()=>console.log("MongoDB Connected"))
 .catch(err=>console.log(err));
 
 app.get("/", (req,res)=>{
 res.send("Crowdsourced Treatment Intelligence Platform API");
 });
-
-app.use("/api", treatmentRoutes);
-
-const PORT= process.env.PORT || 3000;
-app.listen(PORT, ()=>{
-    console.log('Server running on port ${PORT}');
-});
-
-
 app.get("/api/feed/live", async (req, res) => {
   try {
     const PatientIssue = require("./models/PatientIssue");
@@ -62,4 +51,8 @@ app.get("/api/feed/live", async (req, res) => {
       suggestions: []
     });
   }
+  const PORT= process.env.PORT || 3000;
+  app.listen(PORT, ()=>{
+    console.log('Server running on port ${PORT}');
+  });
 });
